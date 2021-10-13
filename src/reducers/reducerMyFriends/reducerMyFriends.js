@@ -1,4 +1,4 @@
-import {userAPI} from './../../API/API.js'
+import {userAPI} from './../../API/API'
 
 
 

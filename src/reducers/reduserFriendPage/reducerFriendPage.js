@@ -1,4 +1,4 @@
-import {userAPI, followAPI} from './../../API/API.js'
+import {userAPI, followAPI} from './../../API/API'
 
 const LIKE_POST = "LIKE-POSt"
 const UNLIKE_POST = 'UNLIKE-POST'

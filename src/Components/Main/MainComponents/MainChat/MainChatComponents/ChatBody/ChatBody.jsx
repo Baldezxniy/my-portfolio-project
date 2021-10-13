@@ -10,7 +10,6 @@ const ChatBody = (props)=> {
 		
 		props.addMessage(data.chatMessageText)
 	}
-	debugger
 	return (
 				<Col md='12' xs='12'  className='mt-2 '	>
 					<ChatBodyMessage chatMessage={props.chatMessage} />

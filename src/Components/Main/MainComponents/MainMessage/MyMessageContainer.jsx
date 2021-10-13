@@ -9,7 +9,7 @@ const mapStateToProps =(state)=>{
 
 
 const mapDispatchToProps =(dispatch)=>{
-
+	return {}
 }
 const MainMessageContainer = connect(mapStateToProps, mapDispatchToProps)(MainMessage);
 export default MainMessageContainer;

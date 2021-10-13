@@ -3,7 +3,6 @@ import {InputGroup, FormControl } from 'react-bootstrap'
 
 class FormChatInput extends React.Component {
   render=()=> {
-    debugger
     const   {
       input: { value, onChange }
     } = this.props

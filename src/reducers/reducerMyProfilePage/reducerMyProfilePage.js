@@ -1,4 +1,4 @@
-import {myProfileAPI , userAPI} from './../../API/API.js'
+import {myProfileAPI , userAPI} from './../../API/API'
 import {getMyInfo} from './../reducerAuth/reducerAuth.js';
 import {stopSubmit} from 'redux-form'
 

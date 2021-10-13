@@ -4,7 +4,7 @@ import './Main.scss'
 import React from 'react'
 import MainMyProfileContainer from './MainComponents/MainMyProfile/MainMyProfileContainer.jsx'
 import MyMessageContainer from './MainComponents/MainMessage/MyMessageContainer.jsx'
-import MainChatContainer from './MainComponents/MainChat/MainChatContainer.jsx'
+import MainChatContainer from './MainComponents/MainChat/MainChatContainer'
 import MainMyFriendContainer from './MainComponents/MainMyFriend/MainMyFriendContainer.jsx'
 import MainFriendProfileContainer from './MainComponents/MainFriendProfile/FriendProfileContainer.jsx'
 import MainLoginContainer from './MainComponents/MainLogin/MainLoginContainer.jsx'
@@ -32,7 +32,7 @@ const Main =(props)=>{
  	return(
 
 		
-		<main className='full__scrin'>
+		<main>
 			<Switch>
 				 <Route exact path='/' render={()=> <Redirect to='/myprofile'/>}/> 
 			 	 <Route  path='/myprofile' render={()=><MainMyProfileContainer />}/>

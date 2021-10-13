@@ -11,7 +11,7 @@ const MainMessage =(props)=> {
 		<Row >
 			<MessageNav />
 			<Col md='10' xs='12' >
-			{props.message.map((m) => <MessageBody id={m.id} messageImg={m.img} messageName={m.name} messageSurname={m.surname} messageText={m.text} messageTime={m.time}/>)}
+			{props.message.map((m) => <MessageBody key={m.id} id={m.id} messageImg={m.img} messageName={m.name} messageSurname={m.surname} messageText={m.text} messageTime={m.time}/>)}
 			</Col>
 		</Row>
 		)

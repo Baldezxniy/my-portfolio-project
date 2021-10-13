@@ -1,4 +1,4 @@
-import * as axios from 'axios';
+import axios from 'axios';
 
 
 const inisialce = axios.create({
@@ -10,18 +10,43 @@ const inisialce = axios.create({
 })
 
 
+type ContactsType = {
+	github: string
+	vk:string 
+	facebook: string
+	instagram: string
+	twitter: string
+	website: string
+	youtube: string
+	mainLink: string
+}
+
+type PhotosType={
+	small: string 
+	large: string 
+}
+
+type UserType = {
+	userId: number 
+	lookingForAJob: boolean
+	lookingForAJobDescription: string 
+	fullName: string 
+	contacts:ContactsType
+	photos:PhotosType
+}
+
 export const userAPI = {
 
-	getUser(userId){
-		return inisialce.get(`profile/${userId}`,)
+	getUser(userId: number){
+		return inisialce.get<UserType>(`profile/${userId}`)
 		.then(response=> response.data)
 
 	},
-	getMyFriends (totalPage, pageSize){
+	getMyFriends (totalPage: number, pageSize: number){
 		return inisialce.get(`users?page=${totalPage}&count=${pageSize}`)
 		  	.then(response => response.data)
 	},
-	setUserStatus (userId){
+	setUserStatus (userId: number){
 		return inisialce.get(`/profile/status/${userId}`)
 			.then(response=> response.data)
 	}
@@ -31,23 +56,28 @@ export const userAPI = {
 
 
 export const followAPI = {
-	followUser(userId){
+	followUser(userId: number){
 		return inisialce.post(`follow/${userId}`)
 			.then(response => response.data)
 	},
-	unFollowUser(userId){
+	unFollowUser(userId: number){
 		return inisialce.delete(`follow/${userId}`)
 			.then(response => response.data)
 	}
 }
 
-
+type SetAuthData = {
+	login: string 
+	password: string 
+	rememberMe: boolean
+	captcha?: string 
+}
 export const authAPI = {
 	getMyInfo (){
 		return inisialce.get(`auth/me`)
 			.then(response => response.data)
 	},
-	setAuth(data){
+	setAuth(data:SetAuthData){
 		
 		return inisialce.post('auth/login', {email:data.login, password:data.password, rememberMe:data.rememberMe, captcha: data.captcha})
 			.then(response => response.data)
@@ -70,7 +100,7 @@ export const myProfileAPI ={
 		return inisialce.put('profile/status', {status:status})
 			.then(response => response.data)
 	},
-	updatePhoto (photo){
+	updatePhoto (photo: any){
 		const formData = new FormData()
 		formData.append('image', photo)
 		return inisialce.put('profile/photo', formData, {
@@ -78,7 +108,7 @@ export const myProfileAPI ={
 
 		}).then(response => response.data)
 	},
-	saveProfile(data){
+	saveProfile(data: ProfileType){
 		debugger
 		return inisialce.put('profile', {...data})
 			.then(response => response.data)

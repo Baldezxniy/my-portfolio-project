@@ -1,10 +1,7 @@
 import React from 'react';
-	import MainFriendProfile from './FriendProfile.jsx'
-	import * as axios from 'axios';
-	import {withRouter} from 'react-router-dom'
-	import userAPI from './../../../../API/API.js'
-import {withAuthRedirect} from './../../../../HOC/hocRedirect.js'
-
+import MainFriendProfile from './FriendProfile.jsx'
+import {withRouter} from 'react-router-dom'
+	
 
 	
 class FriendClassContainer extends React.Component {

@@ -1,6 +1,4 @@
 import React from 'react';
-
-import * as axios from 'axios';
 import Header from './Header.js'
 
 

@@ -5,7 +5,7 @@ import FormChatInput from './FormChatInputComponets/FormChatInput.jsx'
 
 
 const ChatBodyInput = (props) => {
-	debugger
+	
 	return (
       <form onSubmit={props.handleSubmit}>
 		<Row>

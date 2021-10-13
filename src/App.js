@@ -5,11 +5,11 @@ import HeaderContainer from './Components/Header/HeaderContainer.jsx'
 import Main from './Components/Main/Main.js'
 import React from 'react'
 import {connect} from 'react-redux'
-import {inisialSucses} from  './reducers/reducerApp/reducerApp.js'
+import {inisialSucses} from  './reducers/reducerApp/reducerApp'
 import {compose} from 'redux'
 import {withRouter} from 'react-router-dom' 
 import { BrowserRouter } from 'react-router-dom';
-import store from './stateRedux/stateRedux.js'
+import store from './stateRedux/stateRedux.ts'
 import {Provider} from 'react-redux'
 
 
@@ -21,7 +21,7 @@ class App extends React.Component {
     if (!this.props.inisial) return <div className='full__scrin d-flex justify-content-center align-items-center'><Spinner animation="border" variant="primary" />
 </div>
     return (
-        <Container className='full__scrin'>
+        <Container >
           <HeaderContainer />
             <Main />
         </Container>
