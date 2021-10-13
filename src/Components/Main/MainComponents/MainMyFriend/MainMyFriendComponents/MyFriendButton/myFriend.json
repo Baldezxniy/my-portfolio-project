@@ -1,0 +1,12 @@
+[
+				{"id": 1, "online":true, "name":"Вова", "surname":"Винкович", "imge":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxLS4qhIbrb8cA37Gik99qkWkJCuGyihIjbw&usqp=CAU", "socialFriend":13, "lastOnline":2},
+				{"id": 2, "online":true ,"name":"Вика", "surname":"", "imge":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpkZaL8-WnSoFyj8Rk_TyBmTZK4Lo_iFu-AQ&usqp=CAU", "socialFriend":8, "lastOnline":2},
+				{"id": 3,  "online":true,"name":"Рома", "surname":"Винкович", "imge":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPwK0vjAT-oReE-ZKem3kMJAGC7yOkGZvpIw&usqp=CAU", "socialFriend":75, "lastOnline":2},
+				{"id": 4,"online":false,  "name":"Дима", "surname":"Винченко", "imge":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLDKAqQNQ2mKjBhcusTzEY6JWRjnp11-kzxA&usqp=CAU", "socialFriend":13, "lastOnline":5},
+				{"id": 5, "online":true, "name":"Ира", "surname":"Сименко", "imge":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz7pu9tckGronowZ3XFccbBZhlrUZYNXibfA&usqp=CAU", "socialFriend":13, "lastOnline":10},
+				{"id": 6, "online":false, "name":"Паша", "surname":"Абрамов", "imge":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Zk7bPJDKHDgQGUsMVJNKN66NgSStWVw5MQ&usqp=CAU", "socialFriend":11, "lastOnline":7},
+				{"id": 7,"online":true,  "name":"Bob", "surname":"", "imge":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfZNImsa1tMbiQ0h02380kPeTTcb9JtIBYkQ&usqp=CAU", "socialFriend":13, "lastOnline":58},
+				{"id": 8,  "online":false,"name":"Рустем", "surname":"Сетинков", "imge":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaDwcuibxsMtgBXzKvIOrEVg_ZYHsQWeGbpQ&usqp=CAU", "socialFriend":13, "lastOnline":59},
+				{"id": 9, "online":true, "name":"Андрей", "surname":"Киров", "imge":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrjF87Wos-qcN2eGWoBIFwH963HPLxiUvMBQ&usqp=CAU", "socialFriend":13, "lastOnline":12},
+				{"id": 10, "online":false, "name":"Саша", "surname":"", "imge":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh6Zm0cGe_ffEw8YbwPe8_ZJTSA4ZM0u5E4g&usqp=CAU", "socialFriend":45, "lastOnline":1},
+]

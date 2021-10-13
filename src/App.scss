@@ -1,0 +1,274 @@
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+.full__scrin {
+  height: 100vh;
+}
+.text__none{
+  text-decoration: none;
+}
+.nav__item a{
+  text-decoration: none;
+  color: #000;
+  &:hover{
+    color:gold;
+  }
+  &.active{
+    color:blue;
+  }
+}
+
+.post__name{
+  font-size: 11px;
+}
+.post__img{
+  display: inline;
+}
+.post__text{
+  font-size: 12px;
+}
+.post__time{
+  font-size: 8px; 
+
+}
+
+.new__message{
+  position: relative;
+  top: -10px;
+  left: -20px;
+  &:before{
+    content: '';
+    top: 0px;
+    left: 92%;
+    position: absolute;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    z-index: 10;
+
+  }
+
+}
+.message{
+  width:100%;
+  height:60px;
+  text-decoration: none;
+  color:#000;
+  &:hover{
+    background-color: rgba(0,0,0, 0.05);
+    color:#000;
+  }
+
+}
+body{
+    background-color: rgba(0,0,0, 0.05);
+}
+.message__item{
+  width: 100%;
+  height: 100%;
+}
+.message__time{
+  font-size: 12px;
+}
+.message__text{
+  font-size: 12px;
+}
+
+.message__name ,.message__surname{
+  font-size: 14px;
+}
+
+.pos__fix{
+  position: sticky-top;
+}
+
+.chat__message__time{
+    font-size: 10px;
+    padding: 0px 3px 0px 7px; 
+}
+.friend_chat__mesage, .my_chat__mesage{
+  padding: 5px 10px;
+  background-color: #AFEEEE ;
+  border-radius: 10px;
+  max-width: 260px
+
+}
+.main__chat{
+    background-color: #000;
+
+}
+ .block__message{
+  overflow: auto;
+
+   @media (min-height: 400px) {
+      height: 80vh
+    };
+    @media (min-height:  500px) {
+      height: 70.5vh
+    };
+   @media (min-height: 586px) {
+      height: 84vh
+    };
+     @media (min-height: 700px) {
+      height: 86vh
+    };
+    @media (min-height: 812px) {
+     height: 79vh
+    };
+    @media (min-height: 902px) {
+     height: 89vh
+    };
+    @media (min-height: 1007px) {
+     height: 90vh
+    };
+    @media (min-height: 1257px) {
+     height: 92vh
+    };
+    
+     @media (max-height: 470px) {
+      height: 78vh
+
+    };
+    @media (max-height: 400px) {
+      height: 739vh
+
+    };
+    @media (max-height: 350px) {
+      height: 69vh
+
+    };
+     
+    
+ } 
+.message__imge{
+  position: relative;
+  &:before{
+    content:'';
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 2.4px solid #fff;
+    background-color: greenyellow;
+    position: absolute;
+    top: 70%;
+    left: 70%;
+    z-index: 11;
+  }
+} 
+.message__active{
+  position: relative;
+  &:before{
+    content:'✓';
+    width: 10px;
+    height: 8px;
+    position: absolute;
+   // background: url('./check.png')none inherit;
+    top: 0px;
+    left: -18px;
+    z-index: 10;
+  }
+} 
+
+.friend__active{
+  position: relative; 
+  &:before{
+    position: absolute; 
+    content:'';
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 2.4px solid #fff;
+    background-color: greenyellow;
+    position: absolute;
+    top: 70%;
+    left: 70%;
+    z-index: 11;  
+    
+  }
+}
+
+.friend__no-style{
+  text-decoration: none;
+  color:#000;
+  &:hover{
+    color:#000
+  }
+}
+
+.friend__profile_hover{
+  &:hover{
+    background-color: rgba(0,0,0, 0.05);
+  }
+}
+
+.friend__name{
+  font-size: 15px;
+}
+.friend__friend{
+  font-size: 13px;
+}
+
+.friend__time{
+  font-size: 12px;
+}
+
+
+.avatar__border{
+  border: 3px solid rgba(0, 0, 0, 0.3);
+
+}
+
+
+.friend__name{
+  font-size: 13px;
+}
+
+.friend__post__text{
+  font-size: 15px;
+}
+.friend__post__time{
+  font-size: 9px;
+}
+
+
+
+.seting__items{
+  font-size: 13px;
+  &:hover{
+    background-color: rgba(0, 0,0, 0.04);
+  }
+}
+
+.seting__border{
+  border-top:10px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 10px solid rgba(0, 0, 0, 0.3);
+}
+.item__icon{
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.news__like{
+  font-size: 16px;
+}
+
+
+.active__page{
+  background-color: red;
+}
+
+.error {
+  color:red;
+  font-size: 20px;
+}
