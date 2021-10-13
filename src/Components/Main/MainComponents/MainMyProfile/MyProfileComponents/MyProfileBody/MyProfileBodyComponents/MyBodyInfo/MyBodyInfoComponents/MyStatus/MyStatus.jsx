@@ -35,7 +35,7 @@ const MyStatusHookCompomponent =(props)=> {
 							      
 											</InputGroup>:
 											
-											<span onDoubleClick={activaEditteMode} onclassName='py-2 unselectable'>
+											<span onDoubleClick={activaEditteMode} className='py-2 unselectable'>
 												{props.status ? props.status : "no status"}
 											</span>}
 				</Col>
