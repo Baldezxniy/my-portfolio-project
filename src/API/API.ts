@@ -35,6 +35,7 @@ type UserType = {
 	photos:PhotosType
 }
 
+
 export const userAPI = {
 
 	getUser(userId: number){
@@ -66,20 +67,31 @@ export const followAPI = {
 	}
 }
 
-type SetAuthData = {
+export type SetAuthData = {
 	login: string 
 	password: string 
 	rememberMe: boolean
 	captcha?: string 
 }
+
+type GetMyInfo = {
+	data: {id: number, email: string, login:string}
+	resultCode: number
+	messages: Array<string>
+} 
+type setAuthType = {
+	resultCode: number
+	messages: Array<string>
+	data: {userId:number}
+}
 export const authAPI = {
 	getMyInfo (){
-		return inisialce.get(`auth/me`)
+		return inisialce.get<GetMyInfo>(`auth/me`)
 			.then(response => response.data)
 	},
 	setAuth(data:SetAuthData){
 		
-		return inisialce.post('auth/login', {email:data.login, password:data.password, rememberMe:data.rememberMe, captcha: data.captcha})
+		return inisialce.post<setAuthType>('auth/login', {email:data.login, password:data.password, rememberMe:data.rememberMe, captcha: data.captcha})
 			.then(response => response.data)
 
 	},
@@ -95,20 +107,20 @@ export const authAPI = {
 
 
 export const myProfileAPI ={
-	updateStatus(status){
+	updateStatus(status:string){
 		
 		return inisialce.put('profile/status', {status:status})
 			.then(response => response.data)
 	},
-	updatePhoto (photo: any){
+	updatePhoto (photo: string){
 		const formData = new FormData()
 		formData.append('image', photo)
 		return inisialce.put('profile/photo', formData, {
-			'Content-Type': 'multipart/form-data'
+			headers:{'Content-Type': 'multipart/form-data'}
 
 		}).then(response => response.data)
 	},
-	saveProfile(data: ProfileType){
+	saveProfile(data: UserType){
 		debugger
 		return inisialce.put('profile', {...data})
 			.then(response => response.data)

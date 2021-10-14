@@ -1,10 +1,17 @@
 
 import { Row, Col} from 'react-bootstrap';
-import {NavLink} from 'react-router-dom'
 import ChatNav from './MainChatComponents/ChatNav/ChatNav.jsx'
 import ChatFriendProfile from './MainChatComponents/ChaProfileFriend/ChatFrindProfile.jsx'
 import ChatBody from './MainChatComponents/ChatBody/ChatBody.jsx'
-const MainChat = (props)=>{
+import { ChatUserType, MessageType } from '../../../../reducers/reducerChatProfileMessage/reducerChatProfileMessage.js';
+
+
+type PropsType = {
+	chatMessage:Array<MessageType>
+	addMessage: ()=> void
+	chat: ChatUserType
+}
+const MainChat:React.FC<PropsType> = (props)=>{
 		
 	return (
 		<Row >

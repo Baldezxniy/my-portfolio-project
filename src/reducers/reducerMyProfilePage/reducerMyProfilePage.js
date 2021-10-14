@@ -1,5 +1,5 @@
 import {myProfileAPI , userAPI} from './../../API/API'
-import {getMyInfo} from './../reducerAuth/reducerAuth.js';
+import {getMyInfo} from './../reducerAuth/reducerAuth';
 import {stopSubmit} from 'redux-form'
 
 

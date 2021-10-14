@@ -1,6 +1,8 @@
-import {authAPI} from './../../API/API'
+import {authAPI, SetAuthData} from './../../API/API'
 import {stopSubmit} from 'redux-form'
-
+import {Dispatch} from 'redux'
+import { ThunkAction } from 'redux-thunk';
+import { AppStateType } from '../../stateRedux/stateRedux';
 
 const SET_CAPTCHA = 'SET_CAPTCHA'
 const SET_USER_LOGIN = 'SET_USER_LOGIN';
@@ -13,15 +15,15 @@ const DELETE_USER = 'DELETE_USER'
 
 const inisialState = {
 	login:{
-		userId: null,
-		email:null,
-		login:null
+		userId: null as number | null,
+		email:null as string | null,
+		login:null as string | null
 	},
 	isAuth:false,
-	captcha:''
+	captcha:null as string | null,
 }
-
-const reducerAuth =(state = inisialState ,action)=>{
+type InisialState = typeof inisialState 
+const reducerAuth =(state = inisialState ,action: ActionsTypes):InisialState=>{
 	switch(action.type){
 		case SET_USER_LOGIN:{
  			return {
@@ -31,7 +33,7 @@ const reducerAuth =(state = inisialState ,action)=>{
 		}
 		case SET_MY_ID:{
 			return{
-				...state, userId:action.userId
+				...state, login:{...state.login,  userId:action.userId}
 			}
 		}
 		case DELETE_USER:{
@@ -51,30 +53,40 @@ const reducerAuth =(state = inisialState ,action)=>{
 	return state
 }
 
+
+type ActionsTypes = SetCaptchaType | LoagingUserType | SetMyIdType | IsUserType
 // ACTION CREATE 
 
 
-
-const setCaptcha = (url)=>{
+type SetCaptchaType = {type : typeof SET_CAPTCHA, url : string}
+const setCaptcha = (url: string ):SetCaptchaType=>{
 	return{
 		type:SET_CAPTCHA,
 		url
 	}
 }
-export const loagingUser = (userId, email, login)=>{
+type LoagingUserType ={
+	type: typeof SET_USER_LOGIN 
+	data:{userId:number | null ,email: string | null, login: string | null}
+}
+export const loagingUser = (userId: number | null, email: string | null, login:string | null ):LoagingUserType=>{
 	return {
 		type:SET_USER_LOGIN,
 		data:{userId, email, login}
 	}
 }
-export const setMyId = (myId)=>{
+type SetMyIdType ={
+	type: typeof SET_MY_ID
+	userId: number 
+}
+export const setMyId = (myId: number):SetMyIdType=>{
 	return {
 		type:SET_MY_ID,
 		userId:myId
 	}
 }
-
-export const isUser = (isAuth)=>{
+type IsUserType = {type: typeof DELETE_USER, isAuth: boolean}
+export const isUser = (isAuth: boolean):IsUserType=>{
 	return {
 		type:DELETE_USER,
 		isAuth
@@ -83,9 +95,9 @@ export const isUser = (isAuth)=>{
 
 
 // THUNK CREATE 
-export const getMyInfo =()=>{
+export const getMyInfo =(): ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>=>{
 
-	return (dispatch)=>{
+	return (dispatch, getState)=>{
 
 		return authAPI.getMyInfo()
 			.then (data=>{ 
@@ -98,18 +110,19 @@ export const getMyInfo =()=>{
 		
 	}
 }
-
-export const setAuth = (formData)=>{
-	return async (dispatch) =>{
+export const setAuth = (formData : SetAuthData)=>{
+	return async (dispatch: Dispatch<ActionsTypes>) =>{
 		authAPI.setAuth(formData)
 			.then(data =>{
 				 
 				if(data.resultCode === 0){
 					dispatch(setMyId(data.data.userId));
-					dispatch(getMyInfo())
+					//@ts-ignore
+				 	dispatch(getMyInfo())
 					dispatch(isUser(true))
 
 				}else {
+					//@ts-ignore
 					dispatch(stopSubmit('login', {_error:data.messages}))
 					if(data.resultCode === 10){
 					authAPI.setCaptcha()
@@ -127,7 +140,7 @@ export const setAuth = (formData)=>{
 
 
 export const deleteAuth = () =>{
-	return (dispatch) =>{
+	return (dispatch:Dispatch<ActionsTypes>) =>{
 		authAPI.setdelete()
 			.then(data => {
 				if(data.resultCode === 0){

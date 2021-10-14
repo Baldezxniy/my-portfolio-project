@@ -1,6 +1,6 @@
-import {getMyInfo} from './../reducerAuth/reducerAuth.js'
+import {getMyInfo} from './../reducerAuth/reducerAuth'
 import {Dispatch} from 'redux'
-import {AppStateType } from './../../stateRedux/stateRedux.ts'
+import {AppStateType } from './../../stateRedux/stateRedux'
 
 
 const INISIALIZE = 'INISIALIZE';
@@ -9,7 +9,7 @@ const inisialState = {
 }
 
 type InisialStateType = typeof inisialState
-const appReducer = (state = inisialState, action:ActionType):inisialState=>{
+const appReducer = (state = inisialState, action:ActionsTypes):InisialStateType=>{
 	switch (action.type){
 		case INISIALIZE:{
 			return {
@@ -23,7 +23,7 @@ const appReducer = (state = inisialState, action:ActionType):inisialState=>{
 	}
 }
 
-type ActionType = InisialType 
+type ActionsTypes = InisialType
 
 type InisialType = {type: typeof INISIALIZE}
 
@@ -33,9 +33,10 @@ const inisial = (): InisialType=>{
 	}
 } 
 
-
-export const inisialSucses = () => (dispatch:Dispatch<ActionType>, getState:()=>AppStateType )=>{
-	const promise = dispatch(getMyInfo())
+export const inisialSucses = () => (dispatch:Dispatch<ActionsTypes>, getState:()=>AppStateType )=>{
+	//@ts-ignore
+	dispatch(getMyInfo())
+	//@ts-ignore
 	promise.then(()=>{
 		dispatch(inisial())
 	})

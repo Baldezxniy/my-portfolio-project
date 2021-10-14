@@ -1,6 +1,6 @@
 import MainLogin from './MainLogin.jsx'
 import {connect} from 'react-redux'
-import {setAuth} from './../../../../reducers/reducerAuth/reducerAuth.js'
+import {setAuth} from './../../../../reducers/reducerAuth/reducerAuth'
 
 const mapStateToProps =(state)=>{
 	return {

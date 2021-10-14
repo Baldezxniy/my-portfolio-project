@@ -1,24 +1,28 @@
-import MainChat from './MainChat.jsx'
+//@ts-ignore
+import MainChat from './MainChat.tsx'
 import {connect} from 'react-redux'
-import {addMessage, ChatUserType, MessageType} from './../../../../reducers/reducerChatProfileMessage/reducerChatProfileMessage.ts'
-import {AppStateType} from './../../../../stateRedux/stateRedux.ts'
+import {addMessage, ChatUserType, MessageType} from './../../../../reducers/reducerChatProfileMessage/reducerChatProfileMessage'
+import {AppStateType} from './../../../../stateRedux/stateRedux'
 
-
-const mapStateToProps = (state: AppStateType)=>{
+type MapStateToPropsType = {
+	chat: ChatUserType
+	chatMessage: Array<MessageType>
+}
+const mapStateToProps = (state: AppStateType):MapStateToPropsType =>{
 	
 	return{
 		chat: state.chatProfileMessage.chatUser as ChatUserType,
-		chatMessage:state.chatProfileMessage.message as MessageType,
+		chatMessage:state.chatProfileMessage.message as Array<MessageType>,
 	}
 }
 
-type MapStateToPropsType = typeof mapStateToProps 
 
 type MapDispatchToProps = {
 	addMessage : (messageText: string) => void
 }
 
 const MainChatContainer = connect<MapStateToPropsType, MapDispatchToProps, {}, AppStateType>(mapStateToProps, {
-														addMessage} )(MainChat)
+														addMessage} )
+														(MainChat)
 
 export default MainChatContainer

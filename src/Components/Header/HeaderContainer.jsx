@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import HeaderClassContainer from './HeaderClassContainer.jsx'
-import { loagingUser,  deleteAuth} from './../../reducers/reducerAuth/reducerAuth.js'
+import { loagingUser,  deleteAuth} from './../../reducers/reducerAuth/reducerAuth'
 
 const mapStateToProps =(state)=>{
 	
