@@ -1,10 +1,8 @@
 import {FormControl, InputGroup} from 'react-bootstrap'
 import React from 'react'
+import { WrappedFieldProps } from 'redux-form'
 
-
-
-
-const FormInputLogin = ({input, meta, ...props})=>{
+const FormInputLogin:React.FC<WrappedFieldProps> = ({input, meta, ...props})=>{
 	  
 	const hasEror = meta.touched && meta.error && '2px solid red'
 	return (<>

@@ -1,10 +1,18 @@
 import {Col, Row, Button, Form, FormControl, InputGroup} from 'react-bootstrap';
-import {reduxForm,Field} from 'redux-form'
-import FormInputLogin from './LoginBodyFormComponent/FormInputLogin/FormInputLogin.jsx'
-import FormInputPassword from './LoginBodyFormComponent/FormInputPassword/FormInputPassword.jsx'
+import {reduxForm,Field, InjectedFormProps, GenericFieldHTMLAttributes, BaseFieldProps, GenericField} from 'redux-form'
+import FormInputLogin from './LoginBodyFormComponent/FormInputLogin/FormInputLogin'
 import FormCheckboxRememberMe from './LoginBodyFormComponent/FormCheckboxRememberMe/FormCheckboxRememberMe.jsx'
-import {required} from './../../../../../../utilits/valuesUtilit.js'
-const LoginBody =(props)=>{
+import {required} from '../../../../../../utilits/valuesUtilit.js'
+import React from 'react';
+import { SetAuthData } from '../../../../../../API/API.js';
+
+
+type OwnProps = {
+	captcha: string | undefined
+}
+
+
+const LoginBody:React.FC<InjectedFormProps<SetAuthData,OwnProps> & OwnProps > =(props)=>{
 	 
 	return (
 			<Col>
@@ -28,10 +36,10 @@ const LoginBody =(props)=>{
 								<Col sm='6' xs='12'  className='d-flex justify-content-center mb-3'>
 									<Field component={FormCheckboxRememberMe} type='checkbox' name='rememberMe' />
 								</Col>
-								<Col sm='6' xs='12'  className='d-flex justify-content-center mb-3'>
-									<img style={{width:'130px'}}src={props.captcha} />
-								</Col>
-								{props.captcha ?<Col sm='6' xs='12'  className='d-flex justify-content-center mb-3'>
+								{!!props.captcha ? <Col sm='6' xs='12'  className='d-flex justify-content-center mb-3'>
+									<img style={{width:'130px'}} src={props.captcha} />
+								</Col>: <></>}
+								{!!props.captcha ? <Col sm='6' xs='12'  className='d-flex justify-content-center mb-3'>
 									<Field name='captcha' placeholder='captcha' validate={[required ]} width='w-100' component={FormInputLogin } className='w-100 d-flex justify-content-center'/>
 
 								</Col> : <></>}
@@ -56,5 +64,5 @@ const LoginBody =(props)=>{
 
 
 
-const LoginReduxBody = reduxForm({form:'login'})(LoginBody)
+const LoginReduxBody = reduxForm<SetAuthData, OwnProps>({form:'login'})(LoginBody)
 export default LoginReduxBody

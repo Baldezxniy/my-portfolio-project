@@ -2,12 +2,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Spinner} from 'react-bootstrap'
 import './Main.scss'
 import React from 'react'
-import MainMyProfileContainer from './MainComponents/MainMyProfile/MainMyProfileContainer.jsx'
-import MyMessageContainer from './MainComponents/MainMessage/MyMessageContainer.jsx'
+import MainMyProfileContainer from './MainComponents/MainMyProfile/MainMyProfileContainer'
+import MyMessageContainer from './MainComponents/MainMessage/MyMessageContainer'
 import MainChatContainer from './MainComponents/MainChat/MainChatContainer'
-import MainMyFriendContainer from './MainComponents/MainMyFriend/MainMyFriendContainer.jsx'
-import MainFriendProfileContainer from './MainComponents/MainFriendProfile/FriendProfileContainer.jsx'
-import MainLoginContainer from './MainComponents/MainLogin/MainLoginContainer.jsx'
+import MainMyFriendContainer from './MainComponents/MainMyFriend/MainMyFriendContainer'
+import MainFriendProfileContainer from './MainComponents/MainFriendProfile/FriendProfileContainer'
+import MainLoginContainer from './MainComponents/MainLogin/MainLoginContainer'
 import {Route ,Switch, Redirect} from 'react-router-dom';
 
 const MainNewsContainer = React.lazy(()=> import('./MainComponents/MainNews/MainNewsContainer.jsx'));

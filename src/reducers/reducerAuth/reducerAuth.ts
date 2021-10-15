@@ -20,7 +20,7 @@ const inisialState = {
 		login:null as string | null
 	},
 	isAuth:false,
-	captcha:null as string | null,
+	captcha:undefined as string | undefined,
 }
 type InisialState = typeof inisialState 
 const reducerAuth =(state = inisialState ,action: ActionsTypes):InisialState=>{
@@ -111,13 +111,11 @@ export const getMyInfo =(): ThunkAction<Promise<void>, AppStateType, unknown, Ac
 	}
 }
 export const setAuth = (formData : SetAuthData):ThunkAction<any, AppStateType, unknown, ActionsTypes>=>{
-	return async (dispatch: Dispatch<ActionsTypes>) =>{
-		authAPI.setAuth(formData)
-			.then(data =>{
-				 
+	return async (dispatch) =>{
+		const data = await authAPI.setAuth(formData)
+			 
 				if(data.resultCode === 0){
 					dispatch(setMyId(data.data.userId));
-					//@ts-ignore
 				 	dispatch(getMyInfo())
 					dispatch(isUser(true))
 
@@ -133,7 +131,7 @@ export const setAuth = (formData : SetAuthData):ThunkAction<any, AppStateType, u
 				}
 				}
 
-			})
+
 
 	}
 }
