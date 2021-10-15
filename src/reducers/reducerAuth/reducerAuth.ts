@@ -1,5 +1,5 @@
 import {authAPI, SetAuthData} from './../../API/API'
-import {stopSubmit} from 'redux-form'
+import { stopSubmit} from 'redux-form'
 import {Dispatch} from 'redux'
 import { ThunkAction } from 'redux-thunk';
 import { AppStateType } from '../../stateRedux/stateRedux';
@@ -110,7 +110,7 @@ export const getMyInfo =(): ThunkAction<Promise<void>, AppStateType, unknown, Ac
 		
 	}
 }
-export const setAuth = (formData : SetAuthData)=>{
+export const setAuth = (formData : SetAuthData):ThunkAction<any, AppStateType, unknown, ActionsTypes>=>{
 	return async (dispatch: Dispatch<ActionsTypes>) =>{
 		authAPI.setAuth(formData)
 			.then(data =>{

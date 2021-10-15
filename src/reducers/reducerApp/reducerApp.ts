@@ -1,7 +1,7 @@
 import {getMyInfo} from './../reducerAuth/reducerAuth'
 import {Dispatch} from 'redux'
 import {AppStateType } from './../../stateRedux/stateRedux'
-
+import {ThunkAction} from 'redux-thunk'
 
 const INISIALIZE = 'INISIALIZE';
 const inisialState = {
@@ -32,11 +32,9 @@ const inisial = (): InisialType=>{
 		type:INISIALIZE
 	}
 } 
-
-export const inisialSucses = () => (dispatch:Dispatch<ActionsTypes>, getState:()=>AppStateType )=>{
-	//@ts-ignore
-	dispatch(getMyInfo())
-	//@ts-ignore
+// Не знаю что должно быть вместо any по этому вернусь со временем
+export const inisialSucses = ():ThunkAction<any, AppStateType, unknown, ActionsTypes> => (dispatch )=>{
+	const promise = dispatch(getMyInfo())
 	promise.then(()=>{
 		dispatch(inisial())
 	})
