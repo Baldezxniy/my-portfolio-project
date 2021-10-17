@@ -19,7 +19,7 @@ const MyPosts = React.memo((props)=>{
 
               <div className='d-flex'>
                 <PostText className='w-100 ' text={props.text}/>
-               <div className=' text-muted d-flex justify-content-end align-self-end   post__time'> 
+               <div className=' text-muted d-flex w-100 justify-content-end align-self-end   post__time'> 
                   10:10
                </div>
               </div>

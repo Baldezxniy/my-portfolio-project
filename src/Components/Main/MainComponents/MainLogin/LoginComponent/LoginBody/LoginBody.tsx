@@ -1,5 +1,5 @@
-import {Col, Row, Button, Form, FormControl, InputGroup} from 'react-bootstrap';
-import {reduxForm,Field, InjectedFormProps, GenericFieldHTMLAttributes, BaseFieldProps, GenericField} from 'redux-form'
+import {Col, Row, Button} from 'react-bootstrap';
+import {reduxForm,Field, InjectedFormProps} from 'redux-form'
 import FormInputLogin from './LoginBodyFormComponent/FormInputLogin/FormInputLogin'
 import FormCheckboxRememberMe from './LoginBodyFormComponent/FormCheckboxRememberMe/FormCheckboxRememberMe.jsx'
 import {required} from '../../../../../../utilits/valuesUtilit.js'
@@ -12,14 +12,14 @@ type OwnProps = {
 }
 
 
-const LoginBody:React.FC<InjectedFormProps<SetAuthData,OwnProps> & OwnProps > =(props)=>{
+const LoginBody:React.FC<InjectedFormProps<SetAuthData,OwnProps> & OwnProps> =(props)=>{
 	 
 	return (
 			<Col>
 				<form onSubmit={props.handleSubmit}>
 					<Row>
 						<Col sm='6' xs='12' className='my-2'>
-							<Field name='login' placeholder='Login' validate={[required ]} width='w-100' component={FormInputLogin } className='w-100'/>
+							<Field name='email' placeholder='Email ' validate={[required ]} width='w-100' component={FormInputLogin } className='w-100'/>
 						</Col>
 					</Row>
 					<Row>	

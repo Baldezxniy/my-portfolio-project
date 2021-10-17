@@ -1,5 +1,4 @@
-import {Row, Col, Button} from 'react-bootstrap';
-import {NavLink} from 'react-router-dom'
+import {Row, Col} from 'react-bootstrap';
 import BtnSubscribe from './FriendBtnComponents/BtnSubscribe/BtnSubscribe.jsx'
 import BtnFriends from './FriendBtnComponents/BtnFriends/BtnFrinds.jsx'
 const FriendBtn = (props)=>{

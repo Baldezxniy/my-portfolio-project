@@ -20,18 +20,19 @@ const mapStateToProps = (state)=>{
 	}
 }
 
-const FriendContainer = connect(mapStateToProps, {
-									setUserStatus,
-									unFollowUser,
-									followUser,
-									likePost,
-									unlikePost, 
-									setProfileUser,
-									isFetchingToggle,
-									toggleFollowProgress,
-									getUser,
-									setUnFollowUser,
-									setFollowUser
-								})(FriendContainerRouter)
-
+const FriendContainer = compose(withAuthRedirect, 
+													connect(mapStateToProps, {
+													setUserStatus,
+													unFollowUser,
+													followUser,
+													likePost,
+													unlikePost, 
+													setProfileUser,
+													isFetchingToggle,
+													toggleFollowProgress,
+													getUser,
+													setUnFollowUser,
+													setFollowUser
+													}
+													 ))(FriendContainerRouter)
 export default FriendContainer 

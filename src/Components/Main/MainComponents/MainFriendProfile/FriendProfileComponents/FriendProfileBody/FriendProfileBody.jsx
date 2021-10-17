@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import {Row, Col,Spinner, Image, Button} from 'react-bootstrap'
-import {NavLink} from 'react-router-dom'
+import {Row, Col,Button} from 'react-bootstrap'
 import FriendBodyInfo from './FriendProfileBodyComponents/FriendBodyInfo/FriendBodyInfo.jsx'
 import FriendBtn from './FriendProfileBodyComponents/FriendBtn/FriendBtn.jsx'
 import FriendPost from './FriendProfileBodyComponents/FriendPosts/FriendPosts.jsx'
@@ -23,7 +22,7 @@ const FriendProfileBody =(props)=>{
 						Посты
 					</Col>
 				</Row>	
-				{props.post.map( p=> <FriendPost name={props.users.fullName} imge={props.users.photos.large} text={p.text}surname={p.surname} key={p.id} idUser={props.users.id} timeAgo={p.timeAgo} like={p.like} id={p.id} likePost={props.likePost} unlikePost={props.unlikePost}/>)}
+				{[...props.post].reverse().map( p=> <FriendPost name={props.users.fullName} imge={props.users.photos.large} text={p.text}surname={p.surname} key={p.id} idUser={props.users.id} timeAgo={p.timeAgo} like={p.like} id={p.id} likePost={props.likePost} unlikePost={props.unlikePost}/>)}
 				<Row>
 					<Col className='d-flex justify-content-center'>
 						<Button size='sm' variant='secondary'className='px-3 mb-2' style={{boxShadow:'none'}} >

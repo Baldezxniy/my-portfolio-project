@@ -6,7 +6,6 @@ import {withRouter} from 'react-router-dom'
 	
 class FriendClassContainer extends React.Component {
 	componentDidMount (){
-		
 		this.props.getUser(this.props.match.params.userId)
 		this.props.setUserStatus(this.props.match.params.userId)
 	}
@@ -18,7 +17,7 @@ class FriendClassContainer extends React.Component {
 
 	}
 	render =()=>{
-
+		debugger
 		return (
 			<MainFriendProfile {...this.props} idUser={this.props.match.params.userId} isFetching={this.props.isFetching} followClick={this.followClick} unFollowClick={this.unFollowClick}/>
 

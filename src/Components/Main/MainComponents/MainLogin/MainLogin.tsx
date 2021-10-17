@@ -1,4 +1,4 @@
-import {Row, Col, InputGroup, FormControl, Form, Button} from 'react-bootstrap';
+import {Row} from 'react-bootstrap';
 import {Redirect} from 'react-router-dom';
 import LoginNav from './LoginComponent/LoginNav/LoginNav'
 import LoginReduxBody from './LoginComponent/LoginBody/LoginBody'  

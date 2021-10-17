@@ -68,7 +68,7 @@ export const followAPI = {
 }
 
 export type SetAuthData = {
-	login: string 
+	email: string 
 	password: string 
 	rememberMe: boolean
 	captcha?: string 
@@ -91,7 +91,7 @@ export const authAPI = {
 	},
 	setAuth(data:SetAuthData){
 		
-		return inisialce.post<setAuthType>('auth/login', {email:data.login, password:data.password, rememberMe:data.rememberMe, captcha: data.captcha})
+		return inisialce.post<setAuthType>('auth/login', {email:data.email, password:data.password, rememberMe:data.rememberMe, captcha: data.captcha})
 			.then(response => response.data)
 
 	},
