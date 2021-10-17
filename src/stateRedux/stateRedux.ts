@@ -27,8 +27,8 @@ type reducerType = typeof reducers
 export type AppStateType = ReturnType<reducerType>
 //Таким способом мы имеем доступ к типу нашего стора и после этого в mapStateToProps в прием функции писать (state: AppState)
 
-type PropertyType<T> = T extends {[key: string ]:infer U} ? U : never  
-export type InferActionsTypes<T extends {[key: string ]: (...params: any[])=> any}> = ReturnType<PropertyType<T>> 
+type PropertyType<T> = T extends {[key: string ]:infer U} ? U : never 
+export type InferActionsTypes<T extends {[key: string]: (...params: any)=> any}> = ReturnType<PropertyType<T>> 
 
 //@ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -91,7 +91,7 @@ export const authAPI = {
 	},
 	setAuth(data:SetAuthData){
 		
-		return inisialce.post<setAuthType>('auth/login', {email:data.email, password:data.password, rememberMe:data.rememberMe, captcha: data.captcha})
+		return inisialce.post<setAuthType>('auth/login', {email:data.email, password:data.password, rememberMe:data.rememberMe, captcha:  data.captcha})
 			.then(response => response.data)
 
 	},
@@ -108,7 +108,6 @@ export const authAPI = {
 
 export const myProfileAPI ={
 	updateStatus(status:string){
-		
 		return inisialce.put('profile/status', {status:status})
 			.then(response => response.data)
 	},
