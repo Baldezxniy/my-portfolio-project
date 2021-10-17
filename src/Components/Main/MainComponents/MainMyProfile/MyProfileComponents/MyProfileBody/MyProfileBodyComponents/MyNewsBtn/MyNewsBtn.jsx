@@ -8,7 +8,7 @@ const MyNewsBtn =(props)=>{
         <Col xs='12' sm='6' md='3' className='mt-2'>
                   <NavLink to="/news" className='friend__no-style d-grid text__none gap-2'>
 
-          <Button variant="secondary" style={{boxShadow:'none'}}>Новости</Button>
+          <Button variant="dark" style={{boxShadow:'none'}}>Новости</Button>
                      </NavLink>
 
           </Col>
