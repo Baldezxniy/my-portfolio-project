@@ -21,7 +21,7 @@ const reducerMyFriends = (state= inisial, action)=>{
 		
 		case SET_FRIEND: {
 			return {
-				...state, myFriends: [...action.friend]
+				...state, myFriends: [...action.friends]
 			}
 		}
 		case SET_PAGE:{
@@ -52,7 +52,7 @@ const reducerMyFriends = (state= inisial, action)=>{
 export const setFriend =(friends)=>{
 	return {
 		type: SET_FRIEND,
-		friend: friends
+		friends
 	}
 }
 

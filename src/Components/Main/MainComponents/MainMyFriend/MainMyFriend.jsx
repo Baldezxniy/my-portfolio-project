@@ -1,13 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Spinner	} from 'react-bootstrap'
-import {NavLink} from 'react-router-dom';
 import MyFriendButton from './MainMyFriendComponents/MyFriendButton/MyFriendButton.jsx'
 import MyFriendNav from './MainMyFriendComponents/MyFriendNav/MyFriendNav.jsx'
 import MyFriendFriends from './MainMyFriendComponents/MyFriendFriends/MyFriendFriends.jsx'
+import { useDispatch, useSelector } from 'react-redux';
+import {getTotalCoundUser, getMyFriendsSuper, getPageSize, getTotalPage, getIsFetching} from './../../../../reselect/myFriendsReselect/myFriendsReselect.js'
+import { getFriendList} from './../../../../reducers/reducerMyFriends/reducerMyFriends.js'
 
 
 const MainMyFriend =(props)=>{
+
+	
+
+	const totalCoundUser = useSelector(getTotalCoundUser)
+	const myFriends = useSelector(getMyFriendsSuper)			
+	const pageSize = useSelector(getPageSize)
+	const totalPage = useSelector(getTotalPage)
+	const isFetching = useSelector(getIsFetching)
+	
+	
+	const dispatch = useDispatch() 
+	useEffect(()=>{
+		dispatch(getFriendList(totalPage, pageSize))
+	}, [])
+
+	const setFrienClick = (totalPage)=>{
+		dispatch(getFriendList(totalPage, pageSize))
+	}
+
 	return (
 		<Row>
 			<MyFriendNav />
@@ -15,19 +36,21 @@ const MainMyFriend =(props)=>{
 			
 
 			<div className='d-flex justify-content-end'>
-				{props.totalCoundUser} друзей
+				{totalCoundUser} друзей
 			</div>
 			<Row>
 				<Col className='d-flex justify-content-center'>
-				  {props.isFetching ? <Spinner size='sm'animation="border" variant="primary" /> : null}
+				  {isFetching ? <Spinner size='sm'animation="border" variant="primary" /> : null}
 				</Col>
 			</Row>
 			
-			{ props.myFriends.map(f => <MyFriendFriends  id={f.id} key={f.id} online={f.online} name={f.name} surname={f.surname} imge={f.photos.large} socialFriend={f.socialFriend} lastOnline={f.lastOnline}/>)}
+			{myFriends.map(f => <MyFriendFriends  id={f.id} key={f.id} online={f.online} name={f.name}
+				 surname={f.surname} imge={f.photos.large} socialFriend={f.socialFriend} lastOnline={f.lastOnline}/>)}
 			
 			</Col>
 
-		<MyFriendButton totalPage={props.totalPage}setFrienClick={props.setFrienClick}   setTotalPage={props.setTotalPage} totalCoundUser={props.totalCoundUser}pageSize={props.pageSize}totalPage={props.totalPage} myFriends={props.myFriends}setFriend={props.setFriend}/>
+		<MyFriendButton totalPage={totalPage}setFrienClick={setFrienClick}  
+		 		totalCoundUser={ totalCoundUser}pageSize={ pageSize}totalPage={totalPage} />
 		</Row>
 		)
 }

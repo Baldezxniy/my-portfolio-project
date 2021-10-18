@@ -1,8 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button} from 'react-bootstrap';
 import {Col } from 'react-bootstrap'
 import React, {useState} from 'react'
-import * as axios from 'axios';
 import Pagination from '@mui/material/Pagination';
 var numPage;
 const MyFrienButton = (props)=>{

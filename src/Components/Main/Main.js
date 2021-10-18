@@ -3,12 +3,12 @@ import {Spinner} from 'react-bootstrap'
 import './Main.scss'
 import React from 'react'
 import MainMyProfileContainer from './MainComponents/MainMyProfile/MainMyProfileContainer'
-import MyMessageContainer from './MainComponents/MainMessage/MyMessageContainer'
 import MainChatContainer from './MainComponents/MainChat/MainChatContainer'
-import MainMyFriendContainer from './MainComponents/MainMyFriend/MainMyFriendContainer'
 import MainFriendProfileContainer from './MainComponents/MainFriendProfile/FriendProfileContainer'
 import MainLoginContainer from './MainComponents/MainLogin/MainLoginContainer'
 import {Route ,Switch, Redirect} from 'react-router-dom';
+import MainMyFriend from './MainComponents/MainMyFriend/MainMyFriend';
+import MyMessage from './MainComponents/MainChat/MainChatComponents/ChatBody/ChatBodyComponents/ChatBodyMessage/ChatBodyMessageComponents/MyMessage/MyMessage';
 
 const MainNewsContainer = React.lazy(()=> import('./MainComponents/MainNews/MainNewsContainer.jsx'));
 const MainSetingContainer = React.lazy(()=>import('./MainComponents/MainSeting/MainSetingContainer.jsx'));
@@ -36,10 +36,10 @@ const Main =(props)=>{
 			<Switch>
 				 <Route exact path='/' render={()=> <Redirect to='/myprofile'/>}/> 
 			 	 <Route  path='/myprofile' render={()=><MainMyProfileContainer />}/>
-			     <Route path='/message' exact render={()=> <MyMessageContainer />} />
+			     <Route path='/message' exact render={()=> <MyMessage />} />
 			     <Route path='/seting' render ={()=> containerSuspense(MainSetingContainer)}/> 
 			     <Route path='/message/1' render ={()=><MainChatContainer  />}/>
-			     <Route path='/myfriend' render={()=> <MainMyFriendContainer />}/>
+			     <Route path='/myfriend' render={()=> <MainMyFriend />}/>
 			     <Route path='/friendprofile/:userId'  render ={()=> <MainFriendProfileContainer />}/>
 			     <Route path ="/news" render={()=> containerSuspense(MainNewsContainer)}/>
 			     <Route path='/login' render={()=> <MainLoginContainer />}/>
