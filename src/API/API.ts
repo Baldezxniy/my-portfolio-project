@@ -43,8 +43,8 @@ export const userAPI = {
 		.then(response=> response.data)
 
 	},
-	getMyFriends (totalPage: number, pageSize: number){
-		return inisialce.get(`users?page=${totalPage}&count=${pageSize}`)
+	getMyFriends (totalPage: number, pageSize: number, term:string){
+		return inisialce.get(`users?page=${totalPage}&count=${pageSize}&term=${term}`)
 		  	.then(response => response.data)
 	},
 	setUserStatus (userId: number){

@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Row, Col, Spinner	} from 'react-bootstrap'
+import {Row, Col, Spinner	, InputGroup, FormControl, Button} from 'react-bootstrap'
 import MyFriendButton from './MainMyFriendComponents/MyFriendButton/MyFriendButton.jsx'
 import MyFriendNav from './MainMyFriendComponents/MyFriendNav/MyFriendNav.jsx'
 import MyFriendFriends from './MainMyFriendComponents/MyFriendFriends/MyFriendFriends.jsx'
 import { useDispatch, useSelector } from 'react-redux';
-import {getTotalCoundUser, getMyFriendsSuper, getPageSize, getTotalPage, getIsFetching} from './../../../../reselect/myFriendsReselect/myFriendsReselect.js'
+import {getTotalCoundUser, getMyFriendsSuper, getPageSize, getTotalPage, getIsFetching, getTerm} from './../../../../reselect/myFriendsReselect/myFriendsReselect.js'
 import { getFriendList} from './../../../../reducers/reducerMyFriends/reducerMyFriends.js'
+import { Formik, Form, Field } from 'formik';
+import { InputFormik } from './MainMyFormFormik.jsx';
 
 
 const MainMyFriend =(props)=>{
@@ -18,15 +20,15 @@ const MainMyFriend =(props)=>{
 	const pageSize = useSelector(getPageSize)
 	const totalPage = useSelector(getTotalPage)
 	const isFetching = useSelector(getIsFetching)
-	
+	const term = useSelector(getTerm)
 	
 	const dispatch = useDispatch() 
 	useEffect(()=>{
-		dispatch(getFriendList(totalPage, pageSize))
+		dispatch(getFriendList(totalPage, pageSize, term))
 	}, [])
 
 	const setFrienClick = (totalPage)=>{
-		dispatch(getFriendList(totalPage, pageSize))
+		dispatch(getFriendList(totalPage, pageSize, term))
 	}
 
 	return (
@@ -34,7 +36,7 @@ const MainMyFriend =(props)=>{
 			<MyFriendNav />
 			<Col md='10' xs='12' >
 			
-
+			<InputFormik  pageSize={pageSize}/>			
 			<div className='d-flex justify-content-end'>
 				{totalCoundUser} друзей
 			</div>

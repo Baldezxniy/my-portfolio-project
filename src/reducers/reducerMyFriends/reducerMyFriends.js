@@ -6,6 +6,7 @@ const SET_FRIEND = 'SET-FRIEND';
 const SET_PAGE = 'SET-PAGE';
 const SET_TOTAL_COUNT_USER = 'SET_TOTAL_COUNT_USER'
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
+const NEW_TERM = 'reduserMyFriends/NEW_TERM' 
 
 const inisial = {
 	myFriends:[	
@@ -13,7 +14,8 @@ const inisial = {
 	pageSize: 10,
 	totalCoundUser: 0,
 	totalPage: 1,
-	isFetching: true
+	isFetching: true,
+	term: ''
 
 }
 const reducerMyFriends = (state= inisial, action)=>{
@@ -37,6 +39,12 @@ const reducerMyFriends = (state= inisial, action)=>{
 		case TOGGLE_IS_FETCHING:{
 			return {
 				...state, isFetching: action.isFetching
+			}
+		}
+		case NEW_TERM :{
+			return {
+				...state, 
+				term: action.term
 			}
 		}
 		default :
@@ -77,17 +85,23 @@ export const toggleIsFetching=(isFetching)=>{
 		isFetching:isFetching
 	}
 }
-
+const newTerm = (term)=>{
+	return {
+		type: NEW_TERM,
+		term 
+	}
+}
 
 
 // THUNK CREATE 
 
-export const getFriendList = (totalPage, pageSize)=>{
+export const getFriendList = (totalPage, pageSize, term )=>{
 	
 	return async (dispatch)=>{
+		dispatch(newTerm(term))
 		dispatch(setTotalPage(totalPage))
 		dispatch(toggleIsFetching(true))
-		const data = await userAPI.getMyFriends(totalPage, pageSize)
+		const data = await userAPI.getMyFriends(totalPage, pageSize,term )
 		dispatch(setFriend(data.items))
 		dispatch(toggleIsFetching(false))
 		dispatch(totalUser(data.totalCount))

@@ -29,3 +29,6 @@ export const getIsFetching =(state)=>{
 	return state.myfriendsPage.isFetching
 }
 
+export const getTerm =(state)=>{
+	return state.myfriendsPage.term
+}
