@@ -4,7 +4,6 @@ import React, {useState} from 'react'
 import Pagination from '@mui/material/Pagination';
 var numPage;
 const MyFrienButton = (props)=>{
-
 	const countPage = Math.ceil(props.totalCoundUser /  props.pageSize);		
 	let pageCount = []
 	for(let i=1; i <= countPage; i++){
@@ -15,6 +14,7 @@ const MyFrienButton = (props)=>{
 	setPage(value);
 	numPage = value;
 		};
+		
 		return(
 
 		<Col sm='12' className='d-flex justify-content-center mb-3' > 

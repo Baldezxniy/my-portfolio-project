@@ -7,9 +7,9 @@ import MyFriendFriends from './MainMyFriendComponents/MyFriendFriends/MyFriendFr
 import { useDispatch, useSelector } from 'react-redux';
 import {getTotalCoundUser, getMyFriendsSuper, getPageSize, getTotalPage, getIsFetching, getTerm} from './../../../../reselect/myFriendsReselect/myFriendsReselect.js'
 import { getFriendList} from './../../../../reducers/reducerMyFriends/reducerMyFriends.js'
-import { Formik, Form, Field } from 'formik';
 import { InputFormik } from './MainMyFormFormik.jsx';
-
+import { useHistory } from 'react-router';
+import queryString from 'querystring'
 
 const MainMyFriend =(props)=>{
 
@@ -21,13 +21,36 @@ const MainMyFriend =(props)=>{
 	const totalPage = useSelector(getTotalPage)
 	const isFetching = useSelector(getIsFetching)
 	const term = useSelector(getTerm)
-	
+	const history = useHistory() 
+
+	const query = {}
+	if(!!term) query.term = term
+	if(totalPage !== 1) query.page = totalPage
+
+	useEffect(()=>{
+		history.push({
+			pathname: '/myfriend',
+			search: queryString.stringify(query)
+
+		})
+	}, [term, totalPage] )
+
+
 	const dispatch = useDispatch() 
 	useEffect(()=>{
-		dispatch(getFriendList(totalPage, pageSize, term))
+		const parsed = queryString.parse(history.location.search.substring(1))
+		let actionPage = totalPage
+		if (!!parsed.page) actionPage = Number(parsed.page) 
+		let actionTerm = term 
+		if(!!parsed.term) actionTerm = parsed.term 
+
+		dispatch(getFriendList(actionPage, pageSize, actionTerm))
 	}, [])
 
+
+
 	const setFrienClick = (totalPage)=>{
+		
 		dispatch(getFriendList(totalPage, pageSize, term))
 	}
 
@@ -36,7 +59,7 @@ const MainMyFriend =(props)=>{
 			<MyFriendNav />
 			<Col md='10' xs='12' >
 			
-			<InputFormik  pageSize={pageSize}/>			
+			<InputFormik  pageSize={pageSize} term={term}/>			
 			<div className='d-flex justify-content-end'>
 				{totalCoundUser} друзей
 			</div>

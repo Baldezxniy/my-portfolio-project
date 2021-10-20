@@ -1,16 +1,20 @@
-import React from 'react'
+import React, {useSelector} from 'react'
 import {Row, Col, Spinner	, InputGroup, FormControl, Button} from 'react-bootstrap'
 import { useDispatch } from 'react-redux';
 import { getFriendList} from './../../../../reducers/reducerMyFriends/reducerMyFriends.js'
 import { Formik, Form, Field } from 'formik';
+import {getTerm } from './../../../../reselect/myFriendsReselect/myFriendsReselect.js'
+
 
 export const InputFormik = (props)=>{
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
+  
 	return (
 		<Formik
-       initialValues={{ term: ''}}
+      enableReinitialize
+       initialValues={{ term: props.term}}
        onSubmit={(values, { setSubmitting }) => {
-			dispatch(getFriendList(1, props.pageSize, values.term))
+		  	dispatch(getFriendList(1, props.pageSize, values.term))
 
            setSubmitting(false);
         
