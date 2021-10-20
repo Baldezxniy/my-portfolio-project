@@ -2,11 +2,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col} from 'react-bootstrap';
 import MessageNav from './MainMessageComponents/MessageNav/MessageNav.js'
 import MessageBody from './MainMessageComponents/MessageMessage/MessageBody.js'
-import React,{useSelector} from 'react'
-
+import {useSelector} from 'react-redux'
 const MainMessage =()=> {
-
-	const message = useSelector(state => state.messageData)
+	
+	const message = useSelector((state) => state.messageData.messageData)
 
 	return(
 		<Row >

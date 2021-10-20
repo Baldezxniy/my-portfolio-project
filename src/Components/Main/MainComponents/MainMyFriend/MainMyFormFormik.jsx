@@ -17,7 +17,6 @@ export const InputFormik = (props)=>{
 		  	dispatch(getFriendList(1, props.pageSize, values.term))
 
            setSubmitting(false);
-        
        }
 	}
      >
@@ -35,7 +34,7 @@ export const InputFormik = (props)=>{
 	)
 }
 
-const FormikInput = ({
+export const FormikInput = ({
 		field,
    		form: { touched, errors },
    		...props}) => {

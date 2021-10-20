@@ -1,4 +1,5 @@
-export const messageData = [ 
+export const messageData = {
+      messageData:[ 
       {id:1, img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfZNImsa1tMbiQ0h02380kPeTTcb9JtIBYkQ&usqp=CAU', name:"Вова", surname:'', text:'', time:"12:13"},
       {id:2, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9E6dTVFT8xYH-ud1FIGh68NRgxthvGxRV3A&usqp=CAU", name:"Вика", surname:"Пирогова", text:"Пойдем гулять?", time:"22:23"},
       {id:3, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPwK0vjAT-oReE-ZKem3kMJAGC7yOkGZvpIw&usqp=CAU", name:"Паша", surname:"Федоров", text:"Я никуда не пойду!", time:"21:03"},
@@ -10,7 +11,7 @@ export const messageData = [
       {id:9, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyINjjtAtXlkzUnthpA0IKWwuzsWbFy2Bwsg&usqp=CAU", name:"Настя", surname:"", text:"Я скучаю", time:"12:54"},
       {id:10, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPvfU8nRol-ezAl4t4DGlKGOKPhK79tf6_pg&usqp=CAU", name:"Валера", surname:"", text:"Чего игрноришь ?", time:"00:33"},
   
-]
+]}
 
 
 

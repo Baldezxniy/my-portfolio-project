@@ -8,7 +8,7 @@ import MainFriendProfileContainer from './MainComponents/MainFriendProfile/Frien
 import MainLoginContainer from './MainComponents/MainLogin/MainLoginContainer'
 import {Route ,Switch, Redirect} from 'react-router-dom';
 import MainMyFriend from './MainComponents/MainMyFriend/MainMyFriend';
-import MyMessage from './MainComponents/MainChat/MainChatComponents/ChatBody/ChatBodyComponents/ChatBodyMessage/ChatBodyMessageComponents/MyMessage/MyMessage';
+import MainMessage from './MainComponents/MainMessage/MainMessage';
 
 const MainNewsContainer = React.lazy(()=> import('./MainComponents/MainNews/MainNewsContainer.jsx'));
 const MainSetingContainer = React.lazy(()=>import('./MainComponents/MainSeting/MainSetingContainer.jsx'));
@@ -36,7 +36,7 @@ const Main =(props)=>{
 			<Switch>
 				 <Route exact path='/' render={()=> <Redirect to='/myprofile'/>}/> 
 			 	 <Route  path='/myprofile' render={()=><MainMyProfileContainer />}/>
-			     <Route path='/message' exact render={()=> <MyMessage />} />
+			     <Route path='/message' exact render={()=> <MainMessage />} />
 			     <Route path='/seting' render ={()=> containerSuspense(MainSetingContainer)}/> 
 			     <Route path='/message/1' render ={()=><MainChatContainer  />}/>
 			     <Route path='/myfriend' render={()=> <MainMyFriend />}/>

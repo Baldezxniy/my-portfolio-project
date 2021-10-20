@@ -17,12 +17,8 @@ const mapStateToProps = (state: AppStateType):MapStateToPropsType =>{
 }
 
 
-type MapDispatchToProps = {
-	addMessage : (messageText: string) => void
-}
 
-const MainChatContainer = connect<MapStateToPropsType, MapDispatchToProps, {}, AppStateType>(mapStateToProps, {
-														addMessage} )
-														(MainChat)
+
+const MainChatContainer = connect<MapStateToPropsType, null, {}, AppStateType>(mapStateToProps,  )(MainChat)
 
 export default MainChatContainer

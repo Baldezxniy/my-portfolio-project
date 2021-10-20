@@ -1,28 +1,36 @@
 import {Col, Row, Button} from 'react-bootstrap'
 import React from 'react'
-import {reduxForm, Field} from 'redux-form'
-import FormChatInput from './FormChatInputComponets/FormChatInput.jsx'
+import { Formik, Form, Field } from 'formik';
+import { FormikInput } from '../../../../../MainMyFriend/MainMyFormFormik.jsx';
 
 
 const ChatBodyInput = (props) => {
 	
 	return (
-      <form onSubmit={props.handleSubmit}>
-		<Row>
-		<Col className='d-flex '>
-			
-			<Field component={FormChatInput} name='chatMessageText' placeholder='Написать сообщение...'/>
-		  	<Button className='px-2'variant="outline-primary" size='sm' type="submit" style={{boxShadow:'none', borderRadius:'0px'}}>
-                    send
-              </Button>
-		</Col>
-		</Row>
-		</form>
+      <Formik
+       initialValues={{ mesageText: '' }}
+       
+       onSubmit={(values, { setSubmitting }) => {
+		
+         props.ws.send(values.mesageText)
+		 values.mesageText = ''
+       }}
+     >
+       {({ isSubmitting }) => (
+         <Form className='d-flex'>
+          
+		   <Field type="text"component={FormikInput} name="mesageText" />
+		   <div>
+           <Button type="submit" size='sm' variant='dark' >
+             send
+           </Button>
+		   </div>
+		 </Form>
+       )}
+     </Formik>
 		
 		)
 }
 
-const FormChatBodyInput = reduxForm({form:'chatInput'})(ChatBodyInput)
 
-
-export default FormChatBodyInput;
+export default ChatBodyInput;

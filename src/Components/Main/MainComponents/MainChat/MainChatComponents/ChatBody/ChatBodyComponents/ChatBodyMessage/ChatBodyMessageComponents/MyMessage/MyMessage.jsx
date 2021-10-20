@@ -3,6 +3,7 @@ import MyMessageTime from './MyMessageComponents/MyMessageTime/MyMessageTime.jsx
 
 import MyMessageText from './MyMessageComponents/MyMessageText/MyMessageText.jsx'
 const MyMessage = (props)=>{
+	
 	return (
 		<div  className=' mt-1 d-flex justify-content-end '>
 			<div className='my_chat__mesage d-flex '>

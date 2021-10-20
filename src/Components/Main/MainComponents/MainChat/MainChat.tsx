@@ -21,7 +21,7 @@ const MainChat:React.FC<PropsType> = (props)=>{
 					<ChatFriendProfile chat={props.chat}/>
 				</Row>
 				</Col>
-				<ChatBody chatMessage={props.chatMessage} addMessage={props.addMessage}/>
+				<ChatBody />
 			</Row>
 		)
 }
