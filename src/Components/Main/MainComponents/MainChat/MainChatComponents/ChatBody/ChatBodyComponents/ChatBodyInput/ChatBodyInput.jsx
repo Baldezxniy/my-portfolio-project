@@ -5,28 +5,17 @@ import { FormikInput } from '../../../../../MainMyFriend/MainMyFormFormik.jsx';
 
 
 const ChatBodyInput = (props) => {
-	const [readyStatus, setReadyStatus] = useState(true)
-
-	useEffect(()=>{
-		if(!props.ws) return
-		const readyStatusHandler =() =>{
-			setReadyStatus(false)
-		}
-		props.ws.addEventListener('open', readyStatusHandler)
-		return ()=>{
-			props.ws.removeEventListener('open', readyStatusHandler)
-		}
-	}, [props.ws])
 
 	return (
       <Formik
         initialValues={{ mesageText: '' }}
        
         onSubmit={(values, { setSubmitting }) => {
+			debugger
 			if(!values.mesageText){
 				return
 			}
-        	props.ws.send(values.mesageText)
+        	props.sendMessageUI(values.mesageText)
 			values.mesageText = ''
        }}
      >
@@ -35,7 +24,7 @@ const ChatBodyInput = (props) => {
           
 		   <Field type="text"component={FormikInput} name="mesageText" />
 		   <div>
-           <Button type="submit" disabled={readyStatus} size='sm' variant='dark' >
+           <Button type="submit" disabled={false} size='sm' variant='dark' >
              send
            </Button>
 		   </div>

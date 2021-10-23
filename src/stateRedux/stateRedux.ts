@@ -8,7 +8,7 @@ import reducerAuth from './../reducers/reducerAuth/reducerAuth';
 import appReducer from './../reducers/reducerApp/reducerApp'
 import thunkMiddleware from 'redux-thunk'
 import {reducer as formReducer} from 'redux-form'
-
+import reducerChat from './../reducers/reducerChat/reducerChat.js'
 	
 
 const reducers = combineReducers({
@@ -19,6 +19,7 @@ const reducers = combineReducers({
 	friendPage: reducerFriendPage,
 	AuthUser: reducerAuth,
 	inisialApp: appReducer,
+	chatMessage: reducerChat,
 	form:formReducer
 
 });
