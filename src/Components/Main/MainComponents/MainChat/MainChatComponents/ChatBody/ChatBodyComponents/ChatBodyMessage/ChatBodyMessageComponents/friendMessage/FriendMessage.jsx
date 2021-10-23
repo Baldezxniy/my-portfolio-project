@@ -4,14 +4,13 @@ import FriendMessageTime from './friendMessageComponents/FriendMessageTime/Frien
 import { Image } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import {useState, useEffect} from 'react'
-const FriendMessage = (props) => {
-
+const FriendMessage = (props) => {	
 
 	return (
 		
 		<div className='mt-1  d-flex justify-content-start align-items-end'>
 			<NavLink to={`/friendprofile/${props.userId}`}>
-			      <Image  src={props.photo}  roundedCircle width='35'/>
+			      <Image  src={props.photo ? props.photo : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDiMxpScMGx9h_AuFfjulymvego8LOrItOKw&usqp=CAU'}  roundedCircle width='35'/>
 			</NavLink>
 			<div className=' mx-2	 friend_chat__mesage '>
 				< FriendMessageText text={props.text}/>
