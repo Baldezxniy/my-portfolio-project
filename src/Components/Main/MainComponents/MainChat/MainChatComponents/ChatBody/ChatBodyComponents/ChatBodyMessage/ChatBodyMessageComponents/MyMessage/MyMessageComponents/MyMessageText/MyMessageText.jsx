@@ -1,6 +1,6 @@
 const MyMesageText =(props)=>{
 	return (
-		<span>
+		<span className='message__break'>
 			{props.text}
 		</span>
 		)

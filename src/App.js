@@ -8,9 +8,7 @@ import {connect} from 'react-redux'
 import {inisialSucses} from  './reducers/reducerApp/reducerApp'
 import {compose} from 'redux'
 import {withRouter} from 'react-router-dom' 
-import { BrowserRouter } from 'react-router-dom';
-import store from './stateRedux/stateRedux.ts'
-import {Provider} from 'react-redux'
+
 
 
 class App extends React.Component {
@@ -39,20 +37,6 @@ const mapStateToProps = (state)=>{
 
 
 
-const AppMain = compose(
-  withRouter,
-  connect(mapStateToProps, {inisialSucses}))(App);
-
-
-
-const AppProg = (props)=>{
-  return (
-   <BrowserRouter>
-    <Provider store={store}>
-    <AppMain />
-    </Provider>
-    </BrowserRouter>
-    )
-}
-
-export default AppProg
+export default  compose(
+                      withRouter,
+                      connect(mapStateToProps, {inisialSucses}))(App)

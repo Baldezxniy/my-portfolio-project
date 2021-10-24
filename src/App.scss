@@ -97,7 +97,13 @@ body{
   padding: 5px 10px;
   background-color: #AFEEEE ;
   border-radius: 10px;
-  max-width: 260px
+  max-width: 260px;
+  word-wrap: break-word
+
+}
+
+.message__break{
+  word-wrap: break-word
 
 }
 .main__chat{
